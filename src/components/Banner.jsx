@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -21,11 +22,12 @@ const Banner = () => {
           }`}
         >
           <img
-            src="https://i.ibb.co/7KQyVsX/movie-banner1.jpg" // Change to a movie-related image
+            src="https://i.ibb.co.com/tKrsj24/2770842.webp" // Change to a movie-related image
             className="w-full h-full object-cover"
             alt="Movie Poster 1"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-5 md:px-0">
+            
             <h1 className="text-3xl md:text-5xl font-semibold">The Epic Adventure</h1>
             <p className="text-lg md:text-2xl mt-4">
               Join the hero on a journey to save the world in this heart-pounding action thriller.
@@ -57,11 +59,12 @@ const Banner = () => {
           }`}
         >
           <img
-            src="https://i.ibb.co/WvMHLz9/movie-banner2.jpg" // Change to a movie-related image
+            src="https://i.ibb.co.com/RQytfbH/2409886.webp" // Change to a movie-related image
             alt="Movie Poster 2"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-5 md:px-0">
+          
             <h1 className="text-3xl md:text-5xl font-semibold">Mystery in the Shadows</h1>
             <p className="text-lg md:text-2xl mt-4">
               Unravel the dark secrets in this suspense-filled detective story.
@@ -93,11 +96,12 @@ const Banner = () => {
           }`}
         >
           <img
-            src="https://i.ibb.co/Xb6nQ7m/movie-banner3.jpg" // Change to a movie-related image
+            src="https://i.ibb.co.com/1KnTTbw/AAAABV2u-DQKG4aq7j-Wlz-RWog-Losb7-Ilm-LHMWCv-D4-Mb7ipuz-MFrt6-Yw-Kx-V2-QJ7-Uw-Zn0-Lnmg-Kq-N4-Fw-Xj-I.jpg" // Change to a movie-related image
             alt="Movie Poster 3"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-5 md:px-0">
+          
             <h1 className="text-3xl md:text-5xl font-semibold">Love at First Sight</h1>
             <p className="text-lg md:text-2xl mt-4">
               A heartwarming romantic drama that captures the beauty of falling in love.

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa6';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import "./navbar.css"
+import ThemeToggle from '../ThemeToggle';
 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation()
 
   return (
     <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-5 shadow-md">
@@ -32,6 +34,7 @@ const Navbar = () => {
           <p className='text-white text-lg border-2 p-3 rounded-full border-red-500 cursor-pointer'><FaUser></FaUser></p>
           <Link to="/login" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Login</Link>
           <Link to="/register" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Register</Link>
+         
         </div>
 
         {/* Mobile Menu Button for medium and smaller devices */}
