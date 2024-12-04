@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast'; // Import toast and Toaster from react-hot-toast
 import { Rating } from 'react-simple-star-rating';
+import Swal from 'sweetalert2';
 
 // Movie genres and years
 const genres = ["Comedy", "Drama", "Horror", "Action", "Romance", "Thriller"];
@@ -15,16 +16,50 @@ const AddMovie = () => {
   };
 
   // Handle form submission with validations
-  const handleSubmit = (e) => {
+  const handleAddMovie = (e) => {
     e.preventDefault();
-
     // Validation checks
     if (!isValidForm(e.target)) {
       return;
     }
 
-    // Show success message
-    toast.success("Movie added successfully!");
+    const form = e.target;
+    const poster = form.poster.value;
+    const title = form.title.value;
+    const genre = form.genre.value;
+    const duration = form.duration.value;
+    const releaseYear = form.releaseYear.value;
+    const summary = form.summary.value;
+    
+    const newMovie = {poster, title, genre, duration, releaseYear, summary, rating} 
+    console.log(newMovie)
+
+    // send data to server
+
+    fetch('http://localhost:5000/movies', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.insertedId){
+           // Show success message
+           Swal.fire({
+            title: 'Success',
+            text: 'Movie Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+    })
+
+    
+
+    
   };
 
   // Form validation function
@@ -94,8 +129,8 @@ const AddMovie = () => {
   return (
     <div className='py-16 px-5 md:px-0'>
       <div className="max-w-4xl mx-auto py-8 px-6 md:px-10 border-2 bg-white shadow-lg rounded-lg">
-        <h1 className="text-3xl font-bold text-center mb-6">Add Movie</h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <h1 className="text-3xl text-gray-700 font-bold text-center mb-6">Add Movie</h1>
+        <form onSubmit={handleAddMovie} className="space-y-6">
           
           <div className="flex flex-col">
             <label htmlFor="poster" className="text-sm font-medium text-gray-700">Movie Poster URL</label>
@@ -104,6 +139,7 @@ const AddMovie = () => {
               name="poster"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter poster image URL"
+              
             />
           </div>
 
@@ -114,6 +150,7 @@ const AddMovie = () => {
               name="title"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter movie title"
+             
             />
           </div>
 
@@ -123,6 +160,7 @@ const AddMovie = () => {
               id="genre"
               name="genre"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              
             >
               <option value="">Select genre</option>
               {genres.map((genre, idx) => (
@@ -138,6 +176,7 @@ const AddMovie = () => {
               name="duration"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter duration in minutes"
+              
             />
           </div>
 
@@ -147,6 +186,7 @@ const AddMovie = () => {
               id="releaseYear"
               name="releaseYear"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              
             >
               <option value="">Select year</option>
               {years.map((year, idx) => (
@@ -155,24 +195,26 @@ const AddMovie = () => {
             </select>
           </div>
 
-          <div className="flex flex-row">
+          <div className="flex flex-row" >
             <label className="text-sm font-medium text-gray-700">Rating</label>
             <div className="flex items-center space-x-2">
               <Rating
                 onClick={handleRating}
                 ratingValue={rating}
                 className='inline-flex'
+                
               />
             </div>
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="summary" className="text-sm font-medium text-gray-700">Summary</label>
+            <label  className="text-sm font-medium text-gray-700">Summary</label>
             <textarea
               id="summary"
               name="summary"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter a short summary of the movie"
+             
             />
           </div>
 
