@@ -54,6 +54,7 @@ const AddMovie = () => {
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+          form.reset();
         }
     })
 
