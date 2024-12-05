@@ -1,10 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import AllMovieCard from "../components/AllMovieCard";
+import Details from "../components/Details";
+import { useState } from "react";
 
 
 const AllMovies = () => {
 
-    const movies = useLoaderData();
+    const loadedMovies = useLoaderData();
+    const [movies, setMovies] = useState(loadedMovies);
 
     return (
         <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 mb-16">
@@ -13,7 +16,9 @@ const AllMovies = () => {
                 {
                   movies.map(movie => <AllMovieCard key={movie._id} movie={movie}></AllMovieCard>)  
                 }
+                
             </div>
+            <div className="hidden"><Details movies={movies} setMovies={setMovies}></Details></div>
         </div>
     );
 };

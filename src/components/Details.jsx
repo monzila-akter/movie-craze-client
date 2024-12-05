@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaHeart, FaPenToSquare } from "react-icons/fa6";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
@@ -7,6 +8,7 @@ const Details = () => {
     const navigate = useNavigate();
     const movieDetails = useLoaderData();
     const { _id, poster, title, genre, duration, releaseYear, rating, summary } = movieDetails;
+    const [movie, setMovie] = useState(movieDetails)
 
     const handleDelete = (_id) => {
         console.log(_id)
@@ -20,14 +22,30 @@ const Details = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
+           
+
+            fetch(`http://localhost:5000/movies/${_id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0){
+                Swal.fire({
                 title: "Deleted!",
-                text: "Your file has been deleted.",
+                text: "Your movie has been deleted.",
                 icon: "success"
-              });
+              })
+                 setMovie(null) 
+
+                 navigate("/allMovies")
+                }    
+            })
+            
             }
           });
     }
+
 
 
     return (

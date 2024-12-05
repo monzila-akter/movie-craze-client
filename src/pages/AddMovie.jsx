@@ -26,9 +26,9 @@ const AddMovie = () => {
     const form = e.target;
     const poster = form.poster.value;
     const title = form.title.value;
-    const genre = form.genre.value;
-    const duration = form.duration.value;
-    const releaseYear = form.releaseYear.value;
+    const genre = Array.from(form.genre.selectedOptions).map(option => option.value);
+    const duration =parseInt(form.duration.value, 10);
+    const releaseYear = parseInt(form.releaseYear.value, 10);
     const summary = form.summary.value;
     
     const newMovie = {poster, title, genre, duration, releaseYear, summary, rating} 
@@ -85,7 +85,7 @@ const AddMovie = () => {
     }
 
     // Validate genre
-    if (!genre) {
+    if (genre.length === 0) {
       toast.error("Please select a movie genre.");
       return false;
     }
@@ -161,9 +161,8 @@ const AddMovie = () => {
               id="genre"
               name="genre"
               className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-              
             >
-              <option value="">Select genre</option>
+              <option value="" >Select genre</option>
               {genres.map((genre, idx) => (
                 <option key={idx} value={genre.toLowerCase()}>{genre}</option>
               ))}
