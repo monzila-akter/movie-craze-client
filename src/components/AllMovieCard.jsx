@@ -19,7 +19,7 @@ const AllMovieCard = ({ movie }) => {
         </div>
         <div className="mt-2 text-red-500 font-semibold"><span className='text-white font-semibold'>Rating:</span> {rating} / 5</div>
         <div className="card-actions justify-center mt-4">
-          <Link to={`/movie/${_id}`} className="btn bg-transparent border-2 border-red-500 text-red-500 text-lg font-semibold hover:bg-transparent hover:text-white ">
+          <Link to={`/details/${_id}`} className="btn bg-transparent border-2 border-red-500 text-red-500 text-lg font-semibold hover:bg-transparent hover:text-white ">
             See Details
           </Link>
         </div>
