@@ -130,7 +130,7 @@ const AddMovie = () => {
   return (
     <div className='py-16 px-5 md:px-0'>
       <div className="max-w-4xl mx-auto py-8 px-6 md:px-10 border-2 bg-white shadow-lg rounded-lg">
-        <h1 className="text-3xl text-gray-700 font-bold text-center mb-6">Add Movie</h1>
+        <h1 className="text-3xl text-red-500 font-bold text-center mb-6">Add Movie</h1>
         <form onSubmit={handleAddMovie} className="space-y-6">
           
           <div className="flex flex-col">
