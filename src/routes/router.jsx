@@ -5,6 +5,7 @@ import AllMovies from "../pages/AllMovies";
 import AddMovie from "../pages/AddMovie";
 import MyFavorites from "../pages/MyFavorites";
 import Trending from "../pages/Trending";
+import Details from "../components/Details";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         {
           path: "/trending",
           element: <Trending></Trending>
+        },
+        {
+          path: "/details/:id",
+          element: <Details></Details>,
+          loader: ({params}) => fetch(`http://localhost:5000/movies/${params.id}`)
         }
       ]
     },

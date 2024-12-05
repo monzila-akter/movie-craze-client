@@ -2,7 +2,7 @@
 
 const AboutUs = () => {
     return (
-        <div className="mb-8 md:mb-16">
+        <div className="mb-8 md:mb-20">
              <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 py-16">
       <div className="w-11/12 mx-auto text-center px-5 md:px-10 lg:px-14">
         {/* Section Title */}
