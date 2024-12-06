@@ -7,6 +7,7 @@ import MyFavorites from "../pages/MyFavorites";
 import Trending from "../pages/Trending";
 import Details from "../components/Details";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         {
           path: "/login",
           element: <Login></Login>
+        },
+        {
+          path: "/register",
+          element: <Register></Register>
         }
       ]
     },

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaUser } from 'react-icons/fa6';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 import "./navbar.css"
-import ThemeToggle from '../ThemeToggle';
+import { AuthContext } from '../../provider/AuthProvider';
 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation()
+  const {user, logOut} = useContext(AuthContext)
 
   return (
     <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-5 shadow-md">
@@ -31,8 +31,27 @@ const Navbar = () => {
 
         {/* login/register button for large device */}
         <div className="hidden lg:flex items-center space-x-5">
-          <p className='text-white text-lg border-2 p-3 rounded-full border-red-500 cursor-pointer'><FaUser></FaUser></p>
-          <Link to="/login" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Login</Link>
+        {user && user?.email ? (
+                <div className="relative group">
+                  <img
+                    className="w-12 h-12 rounded-full border-2 border-red-500 object-cover cursor-pointer"
+                    src={user?.photoURL}
+                    alt="User Profile"
+                  />
+                  <div
+                    className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg scale-0 group-hover:scale-100 transition-all duration-500 ease-in-out z-10"
+                  >
+                    <span className="text-lg">{user?.displayName}</span>
+                  </div>
+                </div>
+              ) : (
+                <span className="w-12 h-12 rounded-full bg-transparent flex justify-center items-center text-white text-xl border-2 border-red-500 cursor-pointer">
+                  <FaUser />
+                </span>
+              )}
+          {
+            user && user?.email? <button onClick={logOut} className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent" >Log Out</button> : <Link to="/login" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Login</Link>
+          }
           <Link to="/register" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Register</Link>
          
         </div>
@@ -64,12 +83,30 @@ const Navbar = () => {
           <NavLink to="/addMovie" className="block text-white hover:text-gray-300">Add Movie</NavLink>
           <NavLink to="/myFavorites" className="block text-white hover:text-gray-300">My Favorites</NavLink>
           <NavLink to="/trending" className="block text-white hover:text-gray-300">Trending</NavLink>
-          <div className='flex justify-center cursor-pointer'>
-          <p className='text-white text-lg w-10 h-10 flex justify-center items-center  border-2 p-3 rounded-full border-red-500 block'><FaUser></FaUser></p>
-          </div>
+          
+          {user && user?.email ? (
+                <div className="relative group">
+                  <img
+                    className="w-12 h-12 rounded-full border-2 border-red-500 object-cover cursor-pointer"
+                    src={user?.photoURL}
+                    alt="User Profile"
+                  />
+                  <div
+                    className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-lg scale-0 group-hover:scale-100 transition-all duration-500 ease-in-out z-10"
+                  >
+                    <span className="text-lg">{user?.displayName}</span>
+                  </div>
+                </div>
+              ) : (
+                <span className="w-12 h-12 rounded-full bg-transparent flex justify-center items-center text-white text-xl border-2 border-red-500 cursor-pointer">
+                  <FaUser />
+                </span>
+              )}
           {/* Login/Register buttons in mobile menu */}
           
-          <Link to="/login" className="block text-red-500 hover:text-gray-300 text-lg text-center">Login</Link>
+          {
+            user && user?.email? <button onClick={logOut} className="block text-red-500 hover:text-gray-300 text-lg text-center">Log Out</button> : <Link to="/login" className="block text-red-500 hover:text-gray-300 text-lg text-center">Login</Link>
+          }
           <Link to="/register" className="block text-red-500 hover:text-gray-300 w-full text-center text-lg">Register</Link>
         </div>
       )}
