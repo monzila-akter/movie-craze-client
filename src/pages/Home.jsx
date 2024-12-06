@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import FeaturedMovies from "../components/FeaturedMovies";
 import AboutUs from "../components/AboutUs";
@@ -18,6 +18,7 @@ const Home = () => {
                     featuredMovies.map(movie => <FeaturedMovies key={movie._id} movie={movie}></FeaturedMovies>)
                 }
             </div>
+           <Link to="/allMovies"> <button className="btn block mx-auto bg-red-500 text-white text-lg font-semibold mt-10">See all movies</button></Link>
            </div>
 
            <AboutUs></AboutUs>

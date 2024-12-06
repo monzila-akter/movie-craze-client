@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast'; // Import toast and Toaster from react-hot-toast
 import { Rating } from 'react-simple-star-rating';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 // Movie genres and years
 const genres = ["Comedy", "Drama", "Horror", "Action", "Romance", "Thriller"];
@@ -9,6 +10,7 @@ const years = [2024, 2023, 2022, 2021, 2020, 2019];
 
 const AddMovie = () => {
   const [rating, setRating] = useState(0); // Rating state
+  const {user} = useContext(AuthContext);
 
   // Handle rating change (from react-simple-star-rating)
   const handleRating = (rate) => {
@@ -31,7 +33,7 @@ const AddMovie = () => {
     const releaseYear = parseInt(form.releaseYear.value, 10);
     const summary = form.summary.value;
     
-    const newMovie = {poster, title, genre, duration, releaseYear, summary, rating} 
+    const newMovie = {poster, title, genre, duration, releaseYear, summary, rating, userEmail: user?.email} 
     console.log(newMovie)
 
     // send data to server

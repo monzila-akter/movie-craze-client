@@ -1,13 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import AllMovieCard from "../components/AllMovieCard";
-import Details from "../components/Details";
-import { useState } from "react";
+
 
 
 const AllMovies = () => {
 
-    const loadedMovies = useLoaderData();
-    const [movies, setMovies] = useState(loadedMovies);
+    const movies = useLoaderData();
+   
 
     return (
         <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 mb-16">
@@ -18,7 +17,7 @@ const AllMovies = () => {
                 }
                 
             </div>
-            <div className="hidden"><Details movies={movies} setMovies={setMovies}></Details></div>
+            
         </div>
     );
 };

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaHeart, FaPenToSquare } from "react-icons/fa6";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Details = () => {
+    const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const movieDetails = useLoaderData();
     const { _id, poster, title, genre, duration, releaseYear, rating, summary } = movieDetails;
@@ -45,7 +47,63 @@ const Details = () => {
             }
           });
     }
+// add movie to user's favorite
+const handleAddToFavorites = () => {
+    if (!user) {
+      Swal.fire({
+        title: "You need to login first!",
+        text: "Please log in to add to favorites.",
+        icon: "error",
+        confirmButtonText: "Okay",
+      });
+      return;
+    }
 
+    const favoriteMovie = { movieId: _id, userEmail: user.email };
+
+    fetch("http://localhost:5000/favorites", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(favoriteMovie),
+    })
+    .then((res) => {
+        if (!res.ok) {
+          // Handle the case where the movie is already in favorites
+          return res.json().then(data => {
+            if (data.message) {
+              // Show SweetAlert with the custom error message from the backend
+              Swal.fire({
+                title: "Error!",
+                text: data.message,  // Show the "Movie has already been added to your favorites" message
+                icon: "error",
+                confirmButtonText: "Okay",
+              });
+            }
+          });
+        }
+        return res.json();
+      })
+    .then((data) => {
+      if (data.insertedId) {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Movie added to your favorites successfully.',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
+      }
+    })
+    .catch((error) => {
+      Swal.fire({
+        title: "Error!",
+        text: "Movie already in favorites.",
+        icon: "error",
+        confirmButtonText: "Okay",
+      });
+    });
+  };
 
 
     return (
@@ -77,7 +135,7 @@ const Details = () => {
                   className="btn bg-red-500 text-white text-xl">
                             <FaTrashAlt></FaTrashAlt>
                 </button>
-                        <button className="btn  bg-pink-500 text-xl text-white">
+                        <button onClick={handleAddToFavorites} className="btn  bg-pink-500 text-xl text-white">
                             <FaHeart></FaHeart>
                         </button>
                         <button  
