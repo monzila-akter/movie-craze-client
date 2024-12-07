@@ -23,12 +23,12 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: ()=> fetch("http://localhost:5000/featuredMovies")
+            loader: ()=> fetch("https://movie-craze-server.vercel.app/featuredMovies")
         },
         {
           path: "/allMovies",
           element: <AllMovies></AllMovies>,
-          loader: ()=> fetch("http://localhost:5000/movies")
+          loader: ()=> fetch("https://movie-craze-server.vercel.app/movies")
         },
         {
           path: "/addMovie",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
           element: <PrivateRoute>
             <Details></Details>
             </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/movies/${params.id}`)
+          loader: ({params}) => fetch(`https://movie-craze-server.vercel.app/movies/${params.id}`)
         },
         {
           path: "/login",
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
           element: <PrivateRoute>
             <UpdateMovie></UpdateMovie>
           </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/movies/${params.id}`)
+          loader: ({params}) => fetch(`https://movie-craze-server.vercel.app/movies/${params.id}`)
         }
       ]
     },

@@ -26,7 +26,7 @@ const MyFavorites = () => {
   // Fetch favorite movies
   const fetchFavorites = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/favorites?userEmail=${user.email}`);
+      const res = await fetch(`https://movie-craze-server.vercel.app/favorites?userEmail=${user.email}`);
       const data = await res.json();
      
       
@@ -53,7 +53,7 @@ const MyFavorites = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:5000/favorites/${movieId}/${user?.email}`, {
+          const res = await fetch(`https://movie-craze-server.vercel.app/favorites/${movieId}/${user?.email}`, {
             method: "DELETE",
           });
   

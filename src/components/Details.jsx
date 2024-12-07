@@ -26,7 +26,7 @@ const Details = () => {
             if (result.isConfirmed) {
            
 
-            fetch(`http://localhost:5000/movies/${_id}`, {
+            fetch(`https://movie-craze-server.vercel.app/movies/${_id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -61,7 +61,7 @@ const handleAddToFavorites = () => {
 
     const favoriteMovie = { movieId: _id, userEmail: user.email };
 
-    fetch("http://localhost:5000/favorites", {
+    fetch("https://movie-craze-server.vercel.app/favorites", {
       method: "POST",
       headers: {
         "content-type": "application/json",

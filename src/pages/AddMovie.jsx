@@ -45,7 +45,7 @@ const AddMovie = () => {
 
     // send data to server
 
-    fetch('http://localhost:5000/movies', {
+    fetch('https://movie-craze-server.vercel.app/movies', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

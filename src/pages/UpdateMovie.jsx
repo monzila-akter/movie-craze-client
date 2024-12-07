@@ -48,7 +48,7 @@ const [ratings, setRatings] = useState(rating || 0); // Rating state
    
     // send data to server
 
-    fetch(`http://localhost:5000/movies/${_id}`, {
+    fetch(`https://movie-craze-server.vercel.app/movies/${_id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
