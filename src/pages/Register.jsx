@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash, FaGoogle} from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -68,7 +68,7 @@ const Register = () => {
               id="name"
               name="name"
               {...register("name", { required: "Name is required" })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your full name"
             />
             {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
@@ -82,7 +82,7 @@ const Register = () => {
               id="email"
               name="email"
               {...register("email", { required: "Email is required", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your email"
             />
             {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message || "Invalid email"}</p>}
@@ -96,7 +96,7 @@ const Register = () => {
               id="photoUrl"
               name="photoUrl"
               {...register("photoUrl", { required: "Photo URL is required" })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your photo URL"
             />
             {errors.photoUrl && <p className="text-sm text-red-500 mt-1">{errors.photoUrl.message}</p>}
@@ -123,13 +123,13 @@ const Register = () => {
                   return true;
                 }
               })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your password"
             />
             <div
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-6 top-[45px] text-gray-500 text-lg">
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
+              {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye />}
             </div>
             {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>}
           </div>
@@ -150,7 +150,7 @@ const Register = () => {
         <button
           onClick={handleGoogleLogin}
           type="submit"
-          className="w-full btn py-3 bg-transparent text-xl font-semibold rounded-md text-gray-700  border-2 border-gray-700"
+          className="w-full btn  bg-transparent text-xl font-semibold rounded-md text-blue-600  border-2 border-blue-600"
         >
           <FaGoogle />
           Google

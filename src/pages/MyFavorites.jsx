@@ -95,7 +95,7 @@ const MyFavorites = () => {
   }, [user]);
   
   
-  if (loading) return <div>Loading your favorite movies...</div>;
+  if (loading) return <div className="min-h-screen flex justify-center items-center"><span className="loading loading-bars loading-lg"></span></div>;
 
   return (
     <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 py-10">

@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaGoogle } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa6';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -11,6 +11,7 @@ const Login = () => {
   const { loginUser, googleLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [showPassword, setShowPassword] = useState(false);
 
 
   // Handle form submission for email/password login
@@ -75,26 +76,31 @@ const Login = () => {
                 required: "Email is required", 
                 pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ 
               })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your email"
             />
             {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message || "Invalid email"}</p>}
           </div>
 
           {/* Password Field */}
-          <div>
+          <div className='relative'>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               {...register("password", { 
                 required: "Password is required", 
                 minLength: { value: 6, message: "Password must be at least 6 characters" }
               })}
-              className="mt-2 p-3 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md w-full"
               placeholder="Enter your password"
             />
+            <div
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-6 top-[45px] text-gray-500 text-lg">
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </div>
             {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>}
           </div>
 
@@ -124,7 +130,7 @@ const Login = () => {
         <button
           onClick={handleGoogleLogin}
           type="submit"
-          className="w-full btn py-3 bg-transparent text-xl font-semibold rounded-md text-gray-700  border-2 border-gray-700"
+          className="w-full btn bg-transparent text-xl font-semibold rounded-md text-blue-600  border-2 border-blue-600"
         >
           <FaGoogle />
           Google
