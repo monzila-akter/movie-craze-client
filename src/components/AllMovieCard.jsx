@@ -7,6 +7,8 @@ import "aos/dist/aos.css";
 
 const AllMovieCard = ({ movie }) => {
   const { _id, poster, title, genre, duration, releaseYear, rating } = movie;
+  console.log('genre', genre);
+  
 
   useEffect(() => {
     AOS.init({
@@ -24,7 +26,9 @@ const AllMovieCard = ({ movie }) => {
       </figure>
       <div className="card-body p-5">
         <h2 className="card-title text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-sm text-gray-400 mb-2"><span  className='text-white font-semibold'>Genre:</span>  {genre}</p>
+        <p className="text-sm text-gray-400 mb-2"><span  className='text-white font-semibold'>Genre:</span> {genre && genre.length
+    ? genre.map((g) => g.charAt(0).toUpperCase() + g.slice(1)).join(", ")
+    : ""}</p>
         <div className="flex justify-between text-sm text-gray-300">
           <span>{duration} minutes</span>
           <span>{releaseYear}</span>

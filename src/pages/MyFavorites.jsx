@@ -23,17 +23,13 @@ const MyFavorites = () => {
     AOS.refresh();
   }, []); 
 
-  useEffect(() => {
-    if (user) {
-      fetchFavorites();
-    }
-  }, [user]);
-
   // Fetch favorite movies
   const fetchFavorites = async () => {
     try {
       const res = await fetch(`http://localhost:5000/favorites?userEmail=${user.email}`);
       const data = await res.json();
+      console.log('favourites', data);
+      
       setFavorites(data);
       setLoading(false);
     } catch (error) {
@@ -44,7 +40,8 @@ const MyFavorites = () => {
 
   // Handle delete favorite movie
   const handleDeleteFavorite = async (movieId) => {
-    
+    console.log('movieId', movieId)
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -56,12 +53,12 @@ const MyFavorites = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:5000/favorites/${movieId}`, {
+          const res = await fetch(`http://localhost:5000/favorites/${movieId}/${user?.email}`, {
             method: "DELETE",
           });
   
           const data = await res.json();
-          console.log("Delete response:", data); // Debugging response
+          console.log("Delete response:", data); 
   
           if (data.deletedCount > 0) {
             Swal.fire({
@@ -80,7 +77,7 @@ const MyFavorites = () => {
             });
           }
         } catch (error) {
-          console.error("Error deleting favorite:", error); // Debugging error
+          console.error("Error deleting favorite:", error); 
           Swal.fire({
             title: "Error!",
             text: "An unexpected error occurred. Please try again later.",
@@ -90,6 +87,12 @@ const MyFavorites = () => {
       }
     });
   };
+
+  useEffect(() => {
+    if (user) {
+      fetchFavorites();
+    }
+  }, [user]);
   
   
   if (loading) return <div>Loading your favorite movies...</div>;

@@ -3,16 +3,23 @@ import toast, { Toaster } from 'react-hot-toast'; // Import toast and Toaster fr
 import { Rating } from 'react-simple-star-rating';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import Select from 'react-dropdown-select';
+
 
 // Movie genres and years
 const genres = ["Comedy", "Drama", "Horror", "Action", "Romance", "Thriller"];
 const years = [2024, 2023, 2022, 2021, 2020, 2019];
 
 const AddMovie = () => {
-  const [rating, setRating] = useState(0); // Rating state
+  const [rating, setRating] = useState(0); 
   const {user} = useContext(AuthContext);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
-  // Handle rating change (from react-simple-star-rating)
+  const handleGenreChange = (values) => {
+    setSelectedGenres(values.map((genre) => genre.value)); 
+  };
+
+  
   const handleRating = (rate) => {
     setRating(rate);
   };
@@ -28,7 +35,7 @@ const AddMovie = () => {
     const form = e.target;
     const poster = form.poster.value;
     const title = form.title.value;
-    const genre = Array.from(form.genre.selectedOptions).map(option => option.value);
+    const genre = selectedGenres;
     const duration =parseInt(form.duration.value, 10);
     const releaseYear = parseInt(form.releaseYear.value, 10);
     const summary = form.summary.value;
@@ -57,6 +64,8 @@ const AddMovie = () => {
             confirmButtonText: 'Cool'
           })
           form.reset();
+          setRating(0)
+          setSelectedGenres([]);
         }
     })
 
@@ -69,7 +78,6 @@ const AddMovie = () => {
   const isValidForm = (form) => {
     const poster = form.poster.value;
     const title = form.title.value;
-    const genre = form.genre.value;
     const duration = form.duration.value;
     const releaseYear = form.releaseYear.value;
     const summary = form.summary.value;
@@ -87,7 +95,7 @@ const AddMovie = () => {
     }
 
     // Validate genre
-    if (genre.length === 0) {
+    if (selectedGenres.length === 0) {
       toast.error("Please select a movie genre.");
       return false;
     }
@@ -159,16 +167,27 @@ const AddMovie = () => {
 
           <div className="flex flex-col">
             <label htmlFor="genre" className="text-sm font-medium text-gray-700">Genre</label>
-            <select
-              id="genre"
-              name="genre"
+            
+            <Select
+              multi
+              options={genres.map((genre) => ({
+                label: genre,
+                value: genre.toLowerCase(),
+              }))}
+              onChange={handleGenreChange}
               className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              <option value="" >Select genre</option>
-              {genres.map((genre, idx) => (
-                <option key={idx} value={genre.toLowerCase()}>{genre}</option>
-              ))}
-            </select>
+              placeholder="Select genres"
+              values={selectedGenres.map((genre) => ({
+                label: genre.charAt(0).toUpperCase() + genre.slice(1),
+                value: genre,
+              }))}
+              style={{
+                border: "1px solid #D1D5DB", 
+                borderRadius: "0.375rem", 
+                padding: "0.75rem",
+                boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
+              }}
+            />
           </div>
 
           <div className="flex flex-col">
@@ -197,14 +216,13 @@ const AddMovie = () => {
             </select>
           </div>
 
-          <div className="flex flex-row" >
-            <label className="text-sm font-medium text-gray-700">Rating</label>
+          <div className="flex flex-row items-center" >
+            <label className="text-sm font-medium text-gray-700 me-3">Rating</label>
             <div className="flex items-center space-x-2">
               <Rating
                 onClick={handleRating}
-                ratingValue={rating}
-                className=' inline-flex'
-                
+                initialValue={rating}
+                SVGstyle={{'display': 'inline'}}
               />
             </div>
           </div>

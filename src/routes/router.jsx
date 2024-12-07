@@ -9,8 +9,9 @@ import Details from "../components/Details";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UpdateMovie from "../pages/UpdateMovie";
-import PrivateRoute from "./PrivateRoute";
+
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([

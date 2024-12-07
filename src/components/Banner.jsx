@@ -1,8 +1,21 @@
 import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false,
+      mirror: true,  
+    });
+
+    
+    AOS.refresh();
+  }, []); 
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev === 3 ? 1 : prev + 1));
@@ -28,11 +41,20 @@ const Banner = () => {
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-5 md:px-0">
             
-            <h1 className="text-3xl md:text-5xl font-semibold">The Epic Adventure</h1>
-            <p className="text-lg md:text-2xl mt-4">
+            <h1
+            data-aos="fade-right" 
+       data-aos-delay="100" 
+             className="text-3xl md:text-5xl font-semibold">The Epic Adventure</h1>
+            <p
+            data-aos="fade-left" 
+       data-aos-delay="100"
+             className="text-lg md:text-2xl mt-4">
               Join the hero on a journey to save the world in this heart-pounding action thriller.
             </p>
-            <button className="btn bg-transparent border-2 border-white text-white text-xl mt-6">
+            <button 
+            data-aos="fade-right" 
+       data-aos-delay="100"
+            className="btn bg-transparent border-2 border-white text-white text-xl mt-6">
               Watch Now
             </button>
           </div>

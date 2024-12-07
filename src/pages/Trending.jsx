@@ -19,7 +19,7 @@ const Trending = () => {
   }, []); 
 
   return (
-    <section className="container mx-auto py-12 px-6">
+    <section className="w-11/12 mx-auto py-12 px-6 md:px-10 lg:px-14">
       <h2
       data-aos="fade-up-right" 
        data-aos-delay="100"
@@ -155,7 +155,7 @@ const Trending = () => {
         </div>
 
         {/* Trending Topics Section */}
-        <div className="bg-base-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <div className="bg-base-100 dark:bg-gray-800 p-6 md:p-10 rounded-lg shadow-md">
           <h3 
           data-aos="flip-right" 
        data-aos-delay="100"
@@ -163,25 +163,25 @@ const Trending = () => {
           <ul className="space-y-4">
             <li data-aos="fade-left" 
        data-aos-delay="100">
-              <Link to="/" className="text-xl text-blue-600 hover:underline">
+              <Link to="/" className="text-xl text-blue-400 hover:underline">
                 "Best Action Movies of 2024"
               </Link>
             </li>
             <li data-aos="fade-right" 
        data-aos-delay="100">
-              <Link to="/" className="text-xl text-blue-600 hover:underline">
+              <Link to="/" className="text-xl text-blue-400 hover:underline">
                 "Top 10 Romantic Comedies to Watch"
               </Link>
             </li>
             <li data-aos="fade-left" 
        data-aos-delay="100">
-              <Link to="/" className="text-xl text-blue-600 hover:underline">
+              <Link to="/" className="text-xl text-blue-400 hover:underline">
                 "Must-See Horror Films This Year"
               </Link>
             </li>
             <li data-aos="fade-right" 
        data-aos-delay="100">
-              <Link to="/" className="text-xl text-blue-600 hover:underline">
+              <Link to="/" className="text-xl text-blue-400 hover:underline">
                 "Sci-Fi Movies That Will Blow Your Mind"
               </Link>
             </li>
