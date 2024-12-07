@@ -138,11 +138,11 @@ const handleAddToFavorites = () => {
                         <button onClick={handleAddToFavorites} className="btn  bg-pink-500 text-xl text-white">
                             <FaHeart></FaHeart>
                         </button>
-                        <button  
+                        <Link to={`/updateMovie/${_id}`}><button  
                             className="btn  bg-gray-700 text-xl text-white"
                         >
                             <FaPenToSquare></FaPenToSquare>
-                        </button>
+                        </button></Link>
                     </div>
                 </div>
             </div>

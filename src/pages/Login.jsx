@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa6';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
@@ -10,6 +10,8 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { loginUser, googleLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
 
   // Handle form submission for email/password login
   const onSubmit = (data) => {
@@ -18,7 +20,7 @@ const Login = () => {
     loginUser(email, password)
       .then(result => {
         setUser(result.user);
-        navigate("/");  // Redirect to home or dashboard
+        navigate(location?.state? location.state : "/")  // Redirect to home or dashboard
         Swal.fire({
           title: 'Success!',
           text: 'Logged In Successfully',
@@ -42,7 +44,7 @@ const Login = () => {
     googleLogin()
       .then(result => {
         setUser(result.user);
-        navigate("/");  // Redirect to home or dashboard
+        navigate(location?.state? location.state : "/")  // Redirect to home or dashboard
         Swal.fire({
           title: 'Success!',
           text: 'Logged In Successfully with Google',

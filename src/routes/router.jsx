@@ -8,6 +8,8 @@ import Trending from "../pages/Trending";
 import Details from "../components/Details";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import UpdateMovie from "../pages/UpdateMovie";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -27,11 +29,15 @@ const router = createBrowserRouter([
         },
         {
           path: "/addMovie",
-          element: <AddMovie></AddMovie>
+          element: <PrivateRoute>
+            <AddMovie></AddMovie>
+            </PrivateRoute>
         },
         {
           path: "/myFavorites",
-          element: <MyFavorites></MyFavorites>
+          element: <PrivateRoute>
+            <MyFavorites></MyFavorites>
+          </PrivateRoute>
         },
         {
           path: "/trending",
@@ -39,7 +45,9 @@ const router = createBrowserRouter([
         },
         {
           path: "/details/:id",
-          element: <Details></Details>,
+          element: <PrivateRoute>
+            <Details></Details>
+            </PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/movies/${params.id}`)
         },
         {
@@ -49,6 +57,13 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: "/updateMovie/:id",
+          element: <PrivateRoute>
+            <UpdateMovie></UpdateMovie>
+          </PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/movies/${params.id}`)
         }
       ]
     },

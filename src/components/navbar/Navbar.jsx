@@ -50,9 +50,12 @@ const Navbar = () => {
                 </span>
               )}
           {
-            user && user?.email? <button onClick={logOut} className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent" >Log Out</button> : <Link to="/login" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Login</Link>
+            user && user?.email ? <button onClick={logOut} className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent" >Log Out</button> : <>
+              <Link to="/login" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Login</Link>
+              <Link to="/register" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Register</Link>
+            </>
           }
-          <Link to="/register" className="text-white border-2 border-red-500 btn bg-transparent text-lg hover:text-red-500 hover:bg-transparent">Register</Link>
+          
          
         </div>
 
@@ -105,9 +108,12 @@ const Navbar = () => {
           {/* Login/Register buttons in mobile menu */}
           
           {
-            user && user?.email? <button onClick={logOut} className="block text-red-500 hover:text-gray-300 text-lg text-center">Log Out</button> : <Link to="/login" className="block text-red-500 hover:text-gray-300 text-lg text-center">Login</Link>
+            user && user?.email? <button onClick={logOut} className="block text-red-500 hover:text-gray-300 text-lg text-center">Log Out</button> : <>
+              <Link to="/login" className="block text-red-500 hover:text-gray-300 text-lg text-center">Login</Link>
+              <Link to="/register" className="block text-red-500 hover:text-gray-300 w-full text-center text-lg">Register</Link>
+            </>
           }
-          <Link to="/register" className="block text-red-500 hover:text-gray-300 w-full text-center text-lg">Register</Link>
+          
         </div>
       )}
     </nav>
