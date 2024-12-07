@@ -140,7 +140,7 @@ const AddMovie = () => {
             <input
               type="text"
               name="poster"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter poster image URL"
               
             />
@@ -151,7 +151,7 @@ const AddMovie = () => {
             <input
               type="text"
               name="title"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter movie title"
              
             />
@@ -162,7 +162,7 @@ const AddMovie = () => {
             <select
               id="genre"
               name="genre"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               <option value="" >Select genre</option>
               {genres.map((genre, idx) => (
@@ -176,7 +176,7 @@ const AddMovie = () => {
             <input
               type="number"
               name="duration"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter duration in minutes"
               
             />
@@ -187,7 +187,7 @@ const AddMovie = () => {
             <select
               id="releaseYear"
               name="releaseYear"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               
             >
               <option value="">Select year</option>
@@ -203,7 +203,7 @@ const AddMovie = () => {
               <Rating
                 onClick={handleRating}
                 ratingValue={rating}
-                className='inline-flex'
+                className=' inline-flex'
                 
               />
             </div>
@@ -214,7 +214,7 @@ const AddMovie = () => {
             <textarea
               id="summary"
               name="summary"
-              className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Enter a short summary of the movie"
              
             />

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "firebase": "^11.0.2",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
@@ -19,7 +20,9 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.0.2",
+    "react-select2": "^4.0.3",
     "react-simple-star-rating": "^5.1.7",
+    "select2": "^4.1.0-rc.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.14.5"
   },

@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 const FeaturedMovies = ({movie}) => {
 
     const { _id, poster, title, genre, duration, releaseYear, rating } = movie;
 
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, 
+        once: false,
+        mirror: true,  
+      });
+  
+      
+      AOS.refresh();
+    }, []); 
+  
+
     return (
-        <div className="card transition hover:scale-105 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
+       <div data-aos="flip-right" 
+       data-aos-delay="100">
+         <div className="card transition hover:scale-105 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
         <figure>
           <img src={poster} alt={title} className="w-full h-60 object-cover" />
         </figure>
@@ -25,6 +42,7 @@ const FeaturedMovies = ({movie}) => {
           </div>
         </div>
       </div>
+       </div>
     );
 };
 

@@ -106,9 +106,9 @@ const handleAddToFavorites = () => {
 
 
     return (
-        <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 py-20">
+        <div className=" w-11/12 mx-auto px-5 md:px-10 lg:px-14 py-20">
             {/* Movie Details */}
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-x-14">
+            <div className="bg-white rounded-lg flex flex-col md:flex-row items-center space-y-4 md:space-x-14">
                 {/* Movie Poster */}
                 <img
                     src={poster}
@@ -124,7 +124,7 @@ const handleAddToFavorites = () => {
                         <p><strong>Release Year:</strong> {releaseYear}</p>
                         <p><strong>Rating:</strong> {rating}</p>
                     </div>
-                    <p className="text-gray-700 my-5">{summary}</p>
+                    <p className="text-gray-600 my-5">{summary}</p>
 
                     {/* Action Buttons */}
                     <div className="flex space-x-4 my-7">

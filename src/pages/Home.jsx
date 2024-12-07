@@ -3,10 +3,25 @@ import Banner from "../components/Banner";
 import FeaturedMovies from "../components/FeaturedMovies";
 import AboutUs from "../components/AboutUs";
 import Blog from "../components/Blog";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 
 const Home = () => {
 
    const featuredMovies = useLoaderData();
+
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false,
+      mirror: true,  
+    });
+
+    
+    AOS.refresh();
+  }, []); 
 
     return (
         <div>
@@ -18,7 +33,12 @@ const Home = () => {
                     featuredMovies.map(movie => <FeaturedMovies key={movie._id} movie={movie}></FeaturedMovies>)
                 }
             </div>
-           <Link to="/allMovies"> <button className="btn block mx-auto bg-red-500 text-white text-lg font-semibold mt-10">See all movies</button></Link>
+           <div data-aos="fade-left" 
+        data-aos-delay="100">
+           <Link
+           
+           to="/allMovies"> <button className="btn block mx-auto bg-red-500 text-white text-lg font-semibold mt-10">See all movies</button></Link>
+           </div>
            </div>
 
            <AboutUs></AboutUs>

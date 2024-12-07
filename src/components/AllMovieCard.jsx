@@ -1,12 +1,24 @@
 // AllMovieCard.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const AllMovieCard = ({ movie }) => {
   const { _id, poster, title, genre, duration, releaseYear, rating } = movie;
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true, 
+    });
+  }, []);
+
   return (
-    <div className="card transition hover:scale-105 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
+    <div data-aos="flip-right" 
+    data-aos-delay="100">
+      <div className="card transition hover:scale-105 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
       <figure>
         <img src={poster} alt={title} className="w-full h-60 object-cover" />
       </figure>
@@ -24,6 +36,7 @@ const AllMovieCard = ({ movie }) => {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };

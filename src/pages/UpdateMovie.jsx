@@ -146,7 +146,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <input
                 type="text"
                 name="poster"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Enter poster image URL"
                 defaultValue={poster}
                 
@@ -158,7 +158,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <input
                 type="text"
                 name="title"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Enter movie title"
                 defaultValue={title}
                
@@ -170,7 +170,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <select
                 id="genre"
                 name="genre"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 defaultValue={genre}
               >
                 <option value="" >Select genre</option>
@@ -185,7 +185,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <input
                 type="number"
                 name="duration"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Enter duration in minutes"
                 defaultValue={duration}
                 
@@ -197,7 +197,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <select
                 id="releaseYear"
                 name="releaseYear"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 defaultValue={releaseYear}
                 
               >
@@ -225,7 +225,7 @@ const [ratings, setRatings] = useState(0); // Rating state
               <textarea
                 id="summary"
                 name="summary"
-                className="mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Enter a short summary of the movie"
                 defaultValue={summary}
                
