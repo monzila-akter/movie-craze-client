@@ -45,8 +45,7 @@ const [ratings, setRatings] = useState(rating || 0); // Rating state
     const summary = form.summary.value;
     
     const updatedMovie = {poster, title, genre, duration, releaseYear, summary, ratings, userEmail: user?.email} 
-    console.log(updatedMovie)
-
+   
     // send data to server
 
     fetch(`http://localhost:5000/movies/${_id}`, {
@@ -58,7 +57,7 @@ const [ratings, setRatings] = useState(rating || 0); // Rating state
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.modifiedCount > 0){
            // Show success message
            Swal.fire({

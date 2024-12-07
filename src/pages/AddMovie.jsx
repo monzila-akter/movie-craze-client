@@ -41,7 +41,7 @@ const AddMovie = () => {
     const summary = form.summary.value;
     
     const newMovie = {poster, title, genre, duration, releaseYear, summary, rating, userEmail: user?.email} 
-    console.log(newMovie)
+    
 
     // send data to server
 
@@ -54,7 +54,7 @@ const AddMovie = () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.insertedId){
            // Show success message
            Swal.fire({

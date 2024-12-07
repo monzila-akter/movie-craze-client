@@ -13,7 +13,7 @@ const Details = () => {
     const [movie, setMovie] = useState(movieDetails)
 
     const handleDelete = (_id) => {
-        console.log(_id)
+       
         Swal.fire({
             title: "Are you sure?",
             text: "You wan't to delete this movie!",
@@ -31,7 +31,7 @@ const Details = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.deletedCount > 0){
                 Swal.fire({
                 title: "Deleted!",

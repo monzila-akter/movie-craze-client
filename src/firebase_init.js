@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyALfMGjXbPu2qLj3BsRLh4Vuy1Y7Z4K_2Q",
-  authDomain: "moviecraze-client-auth.firebaseapp.com",
-  projectId: "moviecraze-client-auth",
-  storageBucket: "moviecraze-client-auth.firebasestorage.app",
-  messagingSenderId: "1088856957057",
-  appId: "1:1088856957057:web:3d3490a7efe7ce765e6d80"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

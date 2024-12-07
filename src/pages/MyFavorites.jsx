@@ -28,7 +28,7 @@ const MyFavorites = () => {
     try {
       const res = await fetch(`http://localhost:5000/favorites?userEmail=${user.email}`);
       const data = await res.json();
-      console.log('favourites', data);
+     
       
       setFavorites(data);
       setLoading(false);
@@ -40,7 +40,7 @@ const MyFavorites = () => {
 
   // Handle delete favorite movie
   const handleDeleteFavorite = async (movieId) => {
-    console.log('movieId', movieId)
+  
 
     Swal.fire({
       title: "Are you sure?",
@@ -58,7 +58,7 @@ const MyFavorites = () => {
           });
   
           const data = await res.json();
-          console.log("Delete response:", data); 
+        //   console.log("Delete response:", data); 
   
           if (data.deletedCount > 0) {
             Swal.fire({

@@ -48,11 +48,11 @@ const authInfo = {
    updateUserProfile,
    googleLogin
 }
-console.log(user)
+
 
  useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      console.log('currentUser', currentUser)
+      // console.log('currentUser', currentUser)
         setUser(currentUser)
         setLoading(false)
     })

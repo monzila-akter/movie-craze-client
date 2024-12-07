@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 const AllMovieCard = ({ movie }) => {
   const { _id, poster, title, genre, duration, releaseYear, rating } = movie;
-  console.log('genre', genre);
+ 
   
 
   useEffect(() => {

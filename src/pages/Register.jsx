@@ -20,7 +20,7 @@ const Register = () => {
     // Register user
     createNewUser(email, password)
       .then(result => {
-        console.log(result.user)
+        // console.log(result.user)
         setUser(result.user);
         updateUserProfile({ displayName: name, photoURL: photoUrl })
           .then(() => {

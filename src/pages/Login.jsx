@@ -11,7 +11,7 @@ const Login = () => {
   const { loginUser, googleLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location)
+
 
   // Handle form submission for email/password login
   const onSubmit = (data) => {
