@@ -10,12 +10,14 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UpdateMovie from "../pages/UpdateMovie";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Mainlayout></Mainlayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: "/",

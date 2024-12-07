@@ -3,10 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import AllMovieCard from "../components/AllMovieCard";
 
 const AllMovies = () => {
-    // Load the list of movies from the loader data
+
     const movies = useLoaderData();
 
-    // State to hold the search query
+    // State for the search query
     const [searchQuery, setSearchQuery] = useState("");
 
     // Function to handle search query change
@@ -14,7 +14,7 @@ const AllMovies = () => {
         setSearchQuery(e.target.value);
     };
 
-    // Filter movies based on search query (case-insensitive)
+    // Filter movies based on search query
     const filteredMovies = movies.filter((movie) =>
         movie.title.toLowerCase().includes(searchQuery.toLowerCase())
     );

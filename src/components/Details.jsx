@@ -73,10 +73,9 @@ const handleAddToFavorites = () => {
           // Handle the case where the movie is already in favorites
           return res.json().then(data => {
             if (data.message) {
-              // Show SweetAlert with the custom error message from the backend
               Swal.fire({
                 title: "Error!",
-                text: data.message,  // Show the "Movie has already been added to your favorites" message
+                text: data.message, 
                 icon: "error",
                 confirmButtonText: "Okay",
               });

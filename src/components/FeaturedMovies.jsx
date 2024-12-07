@@ -6,7 +6,7 @@ const FeaturedMovies = ({movie}) => {
     const { _id, poster, title, genre, duration, releaseYear, rating } = movie;
 
     return (
-        <div className="card bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
+        <div className="card transition hover:scale-105 bg-gray-800 text-white shadow-xl rounded-lg overflow-hidden">
         <figure>
           <img src={poster} alt={title} className="w-full h-60 object-cover" />
         </figure>

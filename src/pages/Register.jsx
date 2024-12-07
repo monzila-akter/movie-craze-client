@@ -24,6 +24,7 @@ const Register = () => {
         setUser(result.user);
         updateUserProfile({ displayName: name, photoURL: photoUrl })
           .then(() => {
+            setUser({ displayName: name, photoURL: photoUrl })
             navigate("/");
             Swal.fire({
                 title: 'Success!',
