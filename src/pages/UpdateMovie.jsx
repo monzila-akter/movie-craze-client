@@ -18,7 +18,7 @@ const { _id, poster, title, genre, duration, releaseYear, rating, summary } = mo
 
 const [ratings, setRatings] = useState(rating || 0); // Rating state
   const {user} = useContext(AuthContext);
-  const [selectedGenres, setSelectedGenres] = useState(genre.map((g) => ({ label: g.charAt(0).toUpperCase() + g.slice(1), value: g })));
+  const [selectedGenres, setSelectedGenres] = useState(genre || []);
 
   const handleGenreChange = (values) => {
     setSelectedGenres(values.map((genre) => genre.value)); // Extract values from selected items
@@ -66,8 +66,6 @@ const [ratings, setRatings] = useState(rating || 0); // Rating state
             icon: 'success',
             confirmButtonText: 'Cool'
           })
-          form.reset();
-          setSelectedGenres([]);
         }
     })
 
@@ -177,7 +175,7 @@ const [ratings, setRatings] = useState(rating || 0); // Rating state
              onChange={handleGenreChange}
              className="bg-white mt-2 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
              placeholder="Select genres"
-             values={selectedGenres}
+             values={selectedGenres.map((g) => ({ label: g.charAt(0).toUpperCase() + g.slice(1), value: g }))}
               style={{
                 border: "1px solid #D1D5DB", 
                 borderRadius: "0.375rem", 

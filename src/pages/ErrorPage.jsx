@@ -4,7 +4,7 @@ import { Link, useRouteError } from "react-router-dom";
 const ErrorPage = () => {
 
     const error = useRouteError();
-    // console.log(error)
+    // console.log('routerError', error)
     return (
         <div className="container mx-auto  justify-center items-center min-h-screen flex flex-col">
            <h2 className="text-4xl font-bold text-black mb-6">Oops!</h2>
