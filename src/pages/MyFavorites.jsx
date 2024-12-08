@@ -107,7 +107,7 @@ const MyFavorites = () => {
         <div className="text-center text-gray-500">You have no favorite movies yet!</div>
       ) : (
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {favorites.map((movie) => (
+          {favorites?.map((movie) => (
            <div className="transition hover:scale-105" key={movie._id}>
              <div
             data-aos="flip-right" 
@@ -120,7 +120,9 @@ const MyFavorites = () => {
               />
               <div className="mt-4 space-y-2">
                 <h3 className="text-xl font-bold">{movie.title}</h3>
-                <p className="text-gray-600"><strong>Genre:</strong> {movie.genre.join(", ")}</p>
+        <p className="text-gray-600"><strong>Genre:</strong> {movie?.genre && movie?.genre.length
+    ? movie?.genre.map((g) => g.charAt(0).toUpperCase() + g.slice(1)).join(", ")
+    : ""}</p>
                 <p className="text-gray-600"><strong>Duration:</strong> {movie.duration} mins</p>
                 <p className="text-gray-600"><strong>Release Year:</strong> {movie.releaseYear}</p>
                 <p className="text-gray-600"><strong>Rating:</strong> {movie.rating}</p>

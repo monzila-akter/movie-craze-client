@@ -15,7 +15,7 @@ const AllMovies = () => {
     };
 
     // Filter movies based on search query
-    const filteredMovies = movies.filter((movie) =>
+    const filteredMovies = movies?.filter((movie) =>
         movie.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -40,12 +40,12 @@ const AllMovies = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     // If there are no movies matching the search, display a message
-                    filteredMovies.length === 0 ? (
+                    filteredMovies?.length === 0 ? (
                         <p className="text-center text-lg text-gray-500">
                             No movies found with that title.
                         </p>
                     ) : (
-                        filteredMovies.map((movie) => (
+                        filteredMovies?.map((movie) => (
                             <AllMovieCard key={movie._id} movie={movie} />
                         ))
                     )

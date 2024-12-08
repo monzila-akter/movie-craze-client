@@ -119,7 +119,9 @@ const handleAddToFavorites = () => {
                 <div className=" md:w-3/5">
                     <h2 className="text-3xl font-bold text-red-500 mb-5">{title}</h2>
                     <div className="text-lg space-y-2 text-gray-600">
-                        <p><strong>Genre:</strong> {genre}</p>
+                        <p><strong>Genre:</strong> {genre && genre.length
+    ? genre.map((g) => g.charAt(0).toUpperCase() + g.slice(1)).join(", ")
+    : ""}</p>
                         <p><strong>Duration:</strong> {duration} mins</p>
                         <p><strong>Release Year:</strong> {releaseYear}</p>
                         <p><strong>Rating:</strong> {rating} / 5</p>
