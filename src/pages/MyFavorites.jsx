@@ -106,32 +106,37 @@ const MyFavorites = () => {
       {favorites.length === 0 ? (
         <div className="text-center text-gray-500">You have no favorite movies yet!</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {favorites.map((movie) => (
-            <div
+           <div className="transition hover:scale-105" key={movie._id}>
+             <div
             data-aos="flip-right" 
        data-aos-delay="100"
-             key={movie._id} className="transition hover:scale-105 border rounded-lg shadow-lg p-4 bg-white">
+              className=" border rounded-lg shadow-lg p-5 bg-white">
               <img
                 src={movie.poster}
                 alt={movie.title}
                 className="w-full h-48 object-cover rounded-md"
               />
-              <div className="mt-4">
+              <div className="mt-4 space-y-2">
                 <h3 className="text-xl font-bold">{movie.title}</h3>
                 <p className="text-gray-600"><strong>Genre:</strong> {movie.genre.join(", ")}</p>
                 <p className="text-gray-600"><strong>Duration:</strong> {movie.duration} mins</p>
                 <p className="text-gray-600"><strong>Release Year:</strong> {movie.releaseYear}</p>
                 <p className="text-gray-600"><strong>Rating:</strong> {movie.rating}</p>
+                
+              </div>
+              <div className="mt-5">
                 <button
                   onClick={() => handleDeleteFavorite(movie._id)}
-                  className="mt-4 py-2 px-4 bg-red-500 text-white rounded-md flex items-center space-x-2"
+                  className=" py-2 px-4 bg-red-500 text-white rounded-md flex items-center space-x-2"
                 >
                   <FaTrashAlt />
                   <span>Delete Favorite</span>
                 </button>
-              </div>
+                </div>
             </div>
+           </div>
           ))}
         </div>
       )}
@@ -140,3 +145,4 @@ const MyFavorites = () => {
 };
 
 export default MyFavorites;
+4

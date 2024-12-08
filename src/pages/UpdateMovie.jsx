@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import Select from "react-dropdown-select";
 
 // Movie genres and years
-const genres = ["Comedy", "Drama", "Horror", "Action", "Romance", "Thriller"];
+const genres = ["Comedy", "Drama", "Horror", "Action", "Romance", "Thriller", "History", "Adventure", "Sci-Fi"];
 const years = [2024, 2023, 2022, 2021, 2020, 2019];
 
 

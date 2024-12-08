@@ -122,9 +122,10 @@ const handleAddToFavorites = () => {
                         <p><strong>Genre:</strong> {genre}</p>
                         <p><strong>Duration:</strong> {duration} mins</p>
                         <p><strong>Release Year:</strong> {releaseYear}</p>
-                        <p><strong>Rating:</strong> {rating}</p>
+                        <p><strong>Rating:</strong> {rating} / 5</p>
+                        <p className="text-gray-600 my-5"><strong>Summary:</strong> {summary}</p>
                     </div>
-                    <p className="text-gray-600 my-5">{summary}</p>
+                    
 
                     {/* Action Buttons */}
                     <div className="flex space-x-4 my-7">
