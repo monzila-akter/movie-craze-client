@@ -19,7 +19,7 @@ const Trending = () => {
   }, []); 
 
   return (
-    <section className="w-11/12 mx-auto py-12 px-6 md:px-10 lg:px-14">
+    <section className="w-11/12 mx-auto pt-28 pb-12 px-6 md:px-10 lg:px-14">
       <h2
       data-aos="fade-up-right" 
        data-aos-delay="100"

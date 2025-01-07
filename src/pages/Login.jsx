@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <div className='px-5 flex justify-center items-center'>
-      <div className="w-full max-w-sm md:max-w-lg mx-auto mt-14 p-6 bg-white shadow-lg rounded-lg border-2">
+      <div className="w-full max-w-sm md:max-w-lg mx-auto mt-28 p-6 bg-white shadow-lg rounded-lg border-2">
         <h2 className="text-3xl font-bold text-center text-red-500 mb-6">Please Login Now!</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

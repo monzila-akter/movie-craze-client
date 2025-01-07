@@ -98,7 +98,7 @@ const MyFavorites = () => {
   if (loading) return <div className="min-h-screen flex justify-center items-center"><span className="loading loading-bars loading-lg"></span></div>;
 
   return (
-    <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 py-10">
+    <div className="w-11/12 mx-auto px-5 md:px-10 lg:px-14 pt-36 pb-10">
       <h2 
       data-aos="fade-down-right" 
        data-aos-delay="100"
