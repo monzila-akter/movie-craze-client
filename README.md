@@ -1,7 +1,7 @@
 ## 🎬 Movie Craze – Your Ultimate Movie Portal
 
-![CoinCrafter Screenshot](https://i.imgur.com/yourimage.png)
-![CoinCrafter Screenshot](https://i.imgur.com/yourimage.png)
+![CoinCrafter Screenshot](https://github.com/monzila-akter/movie-craze-client/blob/main/src/assets/movie-craze-2.PNG)
+![CoinCrafter Screenshot](https://github.com/monzila-akter/movie-craze-client/blob/main/src/assets/movie-craze-1.PNG)
 
 ## 🚀 Project Overview
 
